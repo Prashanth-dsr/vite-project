@@ -1,0 +1,18 @@
+body {
+    background-color: #A7727D;
+}
+h1 {
+    color: #EDDBC7;
+}
+h3 {
+    color: #F8EAD8;
+}
+p {
+    color: #F9F5E7;
+}
+li {
+    list-style: none;
+    border: 1px solid #F9F5E7;
+    border-radius: 4px;
+    margin-bottom: 0.5em;
+}
