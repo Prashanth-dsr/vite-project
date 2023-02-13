@@ -16,3 +16,9 @@ li {
     border-radius: 4px;
     margin-bottom: 0.5em;
 }
+
+@media  screen and (max-width: 440px) {
+    .heading {
+        font-size: 30px;
+    }
+}
