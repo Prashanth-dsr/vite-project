@@ -9,6 +9,7 @@ const MESSAGE_QUERY = gql`
             items {
                 id
                 subject
+                body
             }
         }
     }
