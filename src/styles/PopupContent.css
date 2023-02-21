@@ -1,11 +1,14 @@
 .input {
     margin: 10px 0 20px;
     height: 2.5em;
-    border: 1px aqua solid;
     border-radius: 4px;
     font-size: 0.8em;
     color: black;
     padding: 7px;
+  }
+  .border {
+    border: 1px aqua solid;
+
   }
   label {
     color: #A7727D;

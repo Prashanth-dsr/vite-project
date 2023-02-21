@@ -85,27 +85,27 @@ const PopupContent = (props) => {
 
         return (<form onSubmit={onSubmitForm}>
         <label htmlFor="id">ID:</label><br/>
-        <input type="text" defaultValue={id} id="id"
-          readOnly className='input'/><br/>
+        <input type="text" defaultValue={id} id="id" 
+          readOnly className="input"/><br/>
         <label htmlFor="author">AUTHOR:</label><br/>
-        <input type="text" value={author.login} id="author"
-          readOnly className='input'/><br/>
+        <input type="text" defaultValue={author.login} id="author" 
+          readOnly className="input"/><br/>
         <label htmlFor="subject">SUBJECT:</label><br/>
         <input type="text" value={formSubject} id="subject" onChange={onChangeSubject} 
-          readOnly={isReadOnly} className='input'/><br/>
+          readOnly={isReadOnly} className={`input ${isReadOnly? "":"border"}`}/><br/>
         <label htmlFor="body">BODY:</label><br/>
         <input type="text" value={formBody} id="body" onChange={onChangeBody} 
-          readOnly={isReadOnly} className='input'/><br/>
+          readOnly={isReadOnly} className={`input ${isReadOnly? "":"border"}`}/><br/>
         <label htmlFor="language">LANGUAGE:</label><br/>
-        <input type="text" value={language} id="language" 
+        <input type="text" defaultValue={language} id="language" 
           readOnly className='input'/><br/>
         <label htmlFor="views">VIEWS:</label><br/>
-        <input type="text" value={metrics.views} id="views"
+        <input type="text" defaultValue={metrics.views} id="views"
          readOnly className='input'/><br/>
         <label htmlFor="link">LINK:</label><br/>
         <a href={view_href} target="_blank">{view_href}</a><br/>
         <label htmlFor="postTime">POST TIME:</label><br/>
-        <input type="text" value={post_time} id="postTime"
+        <input type="text" defaultValue={post_time} id="postTime"
           readOnly className='input'/><br/>
         <button type="button" onClick={onClickEdit}>{isReadOnly? "Edit": "ReadOnly"}</button>
         <button type="submit">Update</button>
