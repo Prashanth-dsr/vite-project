@@ -37,7 +37,8 @@ mutation UpdateMutation($id: String!, $subject: String!, $body: String!) {
 
 const PopupContent = (props) => {
     const {details} = props;
-    const [isReadOnly, setReadStatus] = useState(true);
+    const [isSubjectReadOnly, setSubjectStatus] = useState(true);
+    const [isBodyReadOnly, setBodyStatus] = useState(true);
     const [formSubject, setSubject] = useState('');
     const [formBody, setBody] = useState('');
 
@@ -71,14 +72,6 @@ const PopupContent = (props) => {
       mutateFunction();
     }
 
-    const onChangeSubject = (e) => {
-      setSubject(e.target.value);
-    }
-
-    const onChangeBody = (e) => {
-      setBody(e.target.value);
-    }
-
       const renderData = () => {
         const {message} = data;
         const {id, author, language, metrics, view_href, post_time} = message;
@@ -88,16 +81,22 @@ const PopupContent = (props) => {
         <input type="text" defaultValue={id} id="id" 
           readOnly className="input"/><br/>
         <label htmlFor="author">AUTHOR:</label><br/>
-        <input type="text" defaultValue={author.login} id="author" 
+        <input type="text" defaultValue={author.login} id="author"
           readOnly className="input"/><br/>
         <label htmlFor="subject">SUBJECT:</label><br/>
-        <input type="text" value={formSubject} id="subject" onChange={onChangeSubject} 
-          readOnly={isReadOnly} className={`input ${isReadOnly? "":"border"}`}/><br/>
+        <input type="text" value={formSubject} id="subject"
+          onChange={(e) => {setSubject(e.target.value)}}
+          onFocus={() => {setSubjectStatus(false)}}
+          onBlur={() => {setSubjectStatus(true)}}
+          readOnly={isSubjectReadOnly} className={`input ${isSubjectReadOnly? "":"border"}`}/><br/>
         <label htmlFor="body">BODY:</label><br/>
-        <input type="text" value={formBody} id="body" onChange={onChangeBody} 
-          readOnly={isReadOnly} className={`input ${isReadOnly? "":"border"}`}/><br/>
+        <input type="text" value={formBody} id="body" 
+          onChange={(e) => {setBody(e.target.value)}}
+          onFocus={() => {setBodyStatus(false)}}
+          onBlur={() => {setBodyStatus(true)}}
+          readOnly={isBodyReadOnly} className={`input ${isBodyReadOnly? "":"border"}`}/><br/>
         <label htmlFor="language">LANGUAGE:</label><br/>
-        <input type="text" defaultValue={language} id="language" 
+        <input type="text" defaultValue={language} id="language"
           readOnly className='input'/><br/>
         <label htmlFor="views">VIEWS:</label><br/>
         <input type="text" defaultValue={metrics.views} id="views"
@@ -107,7 +106,6 @@ const PopupContent = (props) => {
         <label htmlFor="postTime">POST TIME:</label><br/>
         <input type="text" defaultValue={post_time} id="postTime"
           readOnly className='input'/><br/>
-        <button type="button" onClick={onClickEdit}>{isReadOnly? "Edit": "ReadOnly"}</button>
         <button type="submit">Update</button>
       </form>)
       } 
