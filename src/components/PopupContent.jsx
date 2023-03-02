@@ -88,13 +88,13 @@ const PopupContent = (props) => {
           onChange={(e) => {setSubject(e.target.value)}}
           onFocus={() => {setSubjectStatus(false)}}
           onBlur={() => {setSubjectStatus(true)}}
-          readOnly={isSubjectReadOnly} className={`input ${isSubjectReadOnly? "":"border"}`}/><br/>
+          className={`input ${isSubjectReadOnly? "":"border"}`}/><br/>
         <label htmlFor="body">BODY:</label><br/>
         <input type="text" value={formBody} id="body" 
           onChange={(e) => {setBody(e.target.value)}}
           onFocus={() => {setBodyStatus(false)}}
           onBlur={() => {setBodyStatus(true)}}
-          readOnly={isBodyReadOnly} className={`input ${isBodyReadOnly? "":"border"}`}/><br/>
+          className={`input ${isBodyReadOnly? "":"border"}`}/><br/>
         <label htmlFor="language">LANGUAGE:</label><br/>
         <input type="text" defaultValue={language} id="language"
           readOnly className='input'/><br/>
